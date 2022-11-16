@@ -29,7 +29,7 @@ public class CountYZTest {
     public void countYZTest2(){
         String input = "day fez";
         Integer expected = 2;
-        Integer actual = Integer.valueOf(stringsAndThings.countYZ(input));
+        Integer actual = stringsAndThings.countYZ(input);
         Assert.assertEquals(expected, actual);
     }
 
@@ -38,7 +38,7 @@ public class CountYZTest {
     public void countYZTest3 (){
         String input = "day fyyyz";
         Integer expected = 2;
-        Integer actual = Integer.valueOf(stringsAndThings.countYZ(input));
+        Integer actual = stringsAndThings.countYZ(input);
         Assert.assertEquals(expected, actual);
     }
 }

@@ -8,7 +8,7 @@ public class StringsAndThings {
 
     /**
      * Given a string, count the number of words ending in 'y' or 'z' -- so the 'y' in "heavy" and the 'z' in "fez" count,
-     * but not the 'y' in "yellow" (not case sensitive). We'll say that a y or z is at the end of a word if there is not an alphabetic
+     * but not the 'y' in "yellow" (not case-sensitive). We'll say that a y or z is at the end of a word if there is not an alphabetic
      * letter immediately following it. (Note: Character.isLetter(char) tests if a char is an alphabetic letter.)
      * example : countYZ("fez day"); // Should return 2
      * countYZ("day fez"); // Should return 2
@@ -16,48 +16,48 @@ public class StringsAndThings {
      */
     public String countYZ(String input) {
 
-        int countYZString;
         int len = input.length();
-        int count = 0;
-        input = input.toLowerCase();
+        int countYZ = 0;
+        input = (input + "").toLowerCase();
 
         for (int i = 0; i < len; i++) {
 
             if (input.charAt(i) == 'y' || input.charAt(i) == 'z') {
-                if (i < len - 1 && !Character.isLetter(input.charAt(i + 1))) count++;
-                else if (i == len - i) count++;
-
+                //&& !Character.isLetter(input.charAt(i+1))) countYZ++;
+                if (i < len - 1 && !Character.isLetter(input.charAt(i + 1))) countYZ++;
+                else if (i == len - 1) countYZ++;
             }
         }
-        return String.valueOf(count);
-    }
+        return String.valueOf(countYZ);
+
 
     /**
      * Given two strings, base and remove, return a version of the base string where all instances of the remove string have
-     * been removed (not case sensitive). You may assume that the remove string is length 1 or more.
+     * been removed (not case-sensitive). You may assume that the remove string is length 1 or more.
      * Remove only non-overlapping instances, so with "xxx" removing "xx" leaves "x".
      * <p>
      * example : removeString("Hello there", "llo") // Should return "He there"
      * removeString("Hello there", "e") //  Should return "Hllo thr"
      * removeString("Hello there", "x") // Should return "Hello there"
      */
-    public String removeString(String base, String remove) {
+    public String removeString(String String base;
+        base, String remove) {
 
-        String result = "";
+        StringBuilder result = new StringBuilder();
         for (int i = 0; i < base.length() - remove.length(); i++) {
             if (!(base.substring(i, i + remove.length()).equalsIgnoreCase(remove))) {
-                result += base.substring(i, i + 1);
+                result.append(base.charAt(i));
             } else {
                 i = i + remove.length();
             }
         }
-        return result;
+        return result.toString();
     }
 
 
     /**
      * Given a string, return true if the number of appearances of "is" anywhere in the string is equal
-     * to the number of appearances of "not" anywhere in the string (case sensitive)
+     * to the number of appearances of "not" anywhere in the string (case-sensitive)
      * <p>
      * example : containsEqualNumberOfIsAndNot("This is not")  // Should return false
      * containsEqualNumberOfIsAndNot("This is notnot") // Should return true
@@ -90,7 +90,7 @@ public class StringsAndThings {
             return false;
         }
         for(int i=1; i<inputLength-1; i++) {
-            if(inputLength > 2 && input.charAt(i) == 'g' && (input.charAt(i+1) != 'g' && input.charAt(i-1)  != 'g')) {
+            if(input.charAt(i) == 'g' && input.charAt(i + 1) != 'g' && input.charAt(i - 1) != 'g') {
             return false;
             }
         }
